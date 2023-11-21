@@ -76,7 +76,7 @@ function install_Linpeas() {
             return 1
         fi
     else
-        echo -e "${YELLOW}Linpeas already available${NC}"
+        echo -e "${YELLOW}Linpeas already installed${NC}"
     fi
 }
 
@@ -200,32 +200,26 @@ function choose_install() {
     echo "8) Exit"
 
     read -p "Enter selections: " input
+    IFS=' ' read -r -a selections <<< "$input"
 
-    if [[ $input == *"1"* ]]; then
-        install_package "nmap"
-    fi
-    if [[ $input == *"2"* ]]; then
-        install_package "john"
-    fi
-    if [[ $input == *"3"* ]]; then
-        install_package "hashcat"
-    fi
-    if [[ $input == *"4"* ]]; then
-        install_Linpeas
-    fi
-    if [[ $input == *"5"* ]]; then
-        install_package "gobuster"
-    fi
-    if [[ $input == *"6"* ]]; then
-        install_package "nmap"
-        install_package "john"
-        install_package "hashcat"
-        install_package "gobuster"
-        install_Linpeas
-    fi
-    if [[ $input == *"7"* ]]; then
-        install_files
-    fi
+    for selection in "${selections[@]}"; do
+        case $selection in
+            1) install_package "nmap" ;;
+            2) install_package "john" ;;
+            3) install_package "hashcat" ;;
+            4) install_Linpeas ;;
+            5) install_package "gobuster" ;;
+            6) 
+                install_package "nmap"
+                install_package "john"
+                install_package "hashcat"
+                install_package "gobuster"
+                install_Linpeas
+                ;;
+            7) install_files ;;
+            *) echo -e "${RED}Invalid selection: $selection${NC}" ;;
+        esac
+    done
 }
 
 function main() {

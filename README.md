@@ -23,9 +23,9 @@ This Bash script is designed for Epitech Open Days to facilitate the installatio
 2. Make the script executable:
    ```bash
    chmod +x install.sh
-    ```
+   ```
 3. Run the script
-    ```
+    ```bash
     ./install.sh
     ```
 
