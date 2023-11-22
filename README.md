@@ -3,7 +3,7 @@
 ## Overview
 This Bash script is designed for Epitech Open Days to facilitate the installation and uninstallation of various security tools on Linux systems. It automatically detects the Linux distribution and uses the appropriate package manager for operations.
 
-French version below
+[French Version](#script-de-présentation-de-la-sécurité-des-journées-portes-ouvertes-depitech)
 
 ## Requirements
 - Linux Distribution: Debian/Ubuntu, Fedora, or Arch-based
@@ -59,6 +59,8 @@ This script uses John the Ripper, a popular password cracking tool, to decrypt M
 
 ### Nmap Scan with Filtered Output
 This script performs a network scan using Nmap and then filters the output for cleaner results. The command `nmap $1` initiates a scan on the target specified by `$1`. The output of this scan is then processed by two `sed` commands. The first `sed '/Nmap scan report for/d'` command removes lines containing 'Nmap scan report for', and the second `sed '/rDNS record for/d'` command removes lines containing 'rDNS record for'. This results in a more concise and readable output, focusing on the essential details of the Nmap scan.
+
+===========================================================================
 
 # Script de présentation de la sécurité des journées portes ouvertes d'Epitech
 
